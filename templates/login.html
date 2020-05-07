@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Agenda</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="submit" method="post">{% csrf_token %}
-        <div align="center">
-            <label>Usuario</label>
-            <input type="text" name="username">
-            <label>Senha</label>
-            <input type="password" name="password">
-            <button type="submit">Entrar</button>
-         </div>
-     </form>
-    <br>
-    <div align="center">
-    {% for message in messages %}
-        <strong>Error:</strong>{{ message }}
-    {% endfor %}
+<section class="container-fluid text-center">
+    <br
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+                 <div class="col-lg-4 row justify-content-center align-items-center">
+                    <div class="jumbotron">
+                        <h1>Login</h1>
+                        <form action="submit" method="post">{% csrf_token %}
+                            <div align="center">
+                                <label>Usuario</label>
+                                <input type="text" name="username" class="form-control ">
+                                <label>Senha</label>
+                                <input type="password" name="password" class="form-control ">
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10%">Entrar</button>
+                             </div>
+                         </form>
+                        <br>
+                        <div align="center">
+                        {% for message in messages %}
+                            <strong>Error:</strong>{{ message }}
+                        {% endfor %}
+                        </div>
+                    </div>
+                 </div>
+             <div class="col-lg-4"></div>
+        </div>
     </div>
+</section>
 </body>
 </html>

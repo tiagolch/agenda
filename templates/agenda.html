@@ -1,25 +1,41 @@
 {% extends "model-page.html" %}
 {% block content %}
-    <h2>Agendamentos</h2>
-    <a href="evento/">
-        <button type="button">Criar Evento</button>
-    </a>
-    <div>
-        <ul>
-            {% for evento in eventos %}
-                    <li>
-                        <div style={% if evento.get_evento_atrasado %}
-                                        "color:red"
-                                    {% endif %}>
-                            {{ evento.titulo }} -
-                            {{ evento.get_data_evento }} -
-                            {{ evento.local }} -
-                            ( <a href="evento/?id={{ evento.id }}">Editar</a> /
-                              <a href="evento/delete/{{ evento.id }}" onclick="alert('{{ evento.titulo }} Cancelado')">Excluir</a>)
-                        </div>
-                    </li>
 
-            {% endfor %}
-        </ul>
-     </div>
+<section class="container-fluid text-center">
+    <div class="row">
+        <div class="col-lg-4"> </div>
+            <div class="col-lg-4">
+                <div class="jumbotron">
+            <h2>Agendamentos</h2>
+            <a href="evento/">
+            <button type="button" class="btn btn-primary">Criar Evento</button>
+            </a>
+            </div>
+                <div class="col-auto">
+                    <ul  class="list-group">
+                        {% for evento in eventos %}
+                        <li class="list-group-item">
+                            <div style={% if evento.get_evento_atrasado %}
+                                            "color:red"
+                                        {% endif %}>
+                                {{ evento.titulo | upper}} -
+                                {{ evento.get_data_evento }} -
+                                {{ evento.local | upper }} -
+                                <a href="evento/?id={{ evento.id }}">
+                                    <button type="button" class="btn btn-primary">Editar</button>
+                                </a>
+                            <a href="evento/delete/{{ evento.id }}" onclick="alert('{{ evento.titulo }} Cancelado')">
+                             <button type="button" class="btn btn-danger">Excluir</button>
+                            </a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        <div class="col-lg-4"></div>
+    </div>
+</section>
+
+
 {% endblock %}

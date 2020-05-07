@@ -2,28 +2,37 @@
 
 {% block content %}
 
-    <h1>Evento</h1> {{session.user}}
-<form action="submit" method="post">{% csrf_token %}
-    <label>Titulo</label>
-    <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
-    <br>
-    <input type="text" name="titulo" size="29" value=" {{ evento.titulo }}">
-    <br>
-    <label>Data do Evento</label>
-    <br>
-    <input type="datetime-local" name="data_evento" value="{{evento.get_data_input_evento}}">
-    <br>
-    <label>Descricao</label>
-    <br>
-    <textarea name="descricao" rows="5" cols="29" >{{ evento.descricao }}</textarea>
-    <br>
-    <label>Local</label>
-    <br>
-    <input type="text" name="local" value="{{ evento.local }}">
-    <br><br>
-    <button type="submit">Gravar</button>
-    <a href="/" >
-        <button type="button" onclick="alert('Evento Cancelado')">Cancelar</button>
-    </a>
-</form>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 "></div>
+
+        <div class="col-lg-4 ">
+            <h1>Evento</h1> {{session.user}}
+            <form action="submit" method="post" class="form-group">{% csrf_token %}
+                <label class="col-sm-2 col-form-label">Titulo</label>
+                <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
+                <br>
+                <input type="text" class="form-control mx-sm-3" name="titulo" size="29" value=" {{ evento.titulo }}">
+                <br>
+                <label class="col-sm-2 col-form-label">Data do Evento</label>
+                <br>
+                <input type="datetime-local" class="form-control mx-sm-3" name="data_evento" value="{{evento.get_data_input_evento}}">
+                <br>
+                <label class="col-sm-2 col-form-label">Descricao</label>
+                <br>
+                <textarea name="descricao" class="form-control mx-sm-3" rows="5" cols="29" >{{ evento.descricao }}</textarea>
+                <br>
+                <label class="col-sm-2 col-form-label">Local</label>
+                <br>
+                <input type="text" class="form-control mx-sm-3" name="local" value="{{ evento.local }}">
+                <br><br>
+                <button type="submit" class="btn btn-primary">Gravar</button>
+                <a href="/" >
+                    <button type="button" class="btn btn-danger" onclick="alert('Evento Cancelado')">Cancelar</button>
+                </a>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</section>
 {% endblock %}
